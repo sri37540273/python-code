@@ -1,0 +1,21 @@
+def print_ulr(page_source):
+  search_being=0
+  i = 0
+  while True:
+    url_begin = page_source.find('<a href="',search_being)
+    url_end   = page_source.find('">',url_begin)
+    if url_begin == -1 or url_end == -1:
+      if i == 0:
+        print("no url's in this page")
+      break
+
+    print(page_source[url_begin+11:url_end])
+    i=i+1
+    search_being = url_end
+ 
+text1 = """>>> print('The product is:', product)
+<span class="output">The product is: 384</span></code></pre></div>
+                    <div class="slide-copy"><h1>All the Flow You&rsquo;d Expect</h1>
+<p>Python knows the usual control flow statements that other languages speak &mdash; <code>if</code>, <code>for</code>, <code>while</code> and <code>range</code> &mdash; with some of its own twists, of course. <a href="//docs.python.org/3/tutorial/controlflow.html">More control flow tools in Python&nbsp;3</a></p></div>
+                </li>"""
+print_ulr(text1)
