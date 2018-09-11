@@ -1,3 +1,5 @@
+import requests
+
 def print_ulr(page_source):
   search_being=0
   i = 0
@@ -8,14 +10,13 @@ def print_ulr(page_source):
       if i == 0:
         print("no url's in this page")
       break
-
-    print(page_source[url_begin+11:url_end])
+    p_url= page_source[url_begin+9:url_end]
+    if p_url[:4] == 'http':
+      print(page_source[url_begin+9:url_end])
     i=i+1
     search_being = url_end
  
-text1 = """>>> print('The product is:', product)
-<span class="output">The product is: 384</span></code></pre></div>
-                    <div class="slide-copy"><h1>All the Flow You&rsquo;d Expect</h1>
-<p>Python knows the usual control flow statements that other languages speak &mdash; <code>if</code>, <code>for</code>, <code>while</code> and <code>range</code> &mdash; with some of its own twists, of course. <a href="//docs.python.org/3/tutorial/controlflow.html">More control flow tools in Python&nbsp;3</a></p></div>
-                </li>"""
-print_ulr(text1)
+p_source = requests.get('https://www.python.org/').text
+#print(page_source)
+
+print_ulr(p_source)
