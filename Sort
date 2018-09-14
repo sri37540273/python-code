@@ -1,0 +1,10 @@
+un_sort_list = [5,2,2,4,6,1,3,10]
+
+for i in range(len(un_sort_list)-1):
+  for i in range(len(un_sort_list)-1):
+    if un_sort_list[i] > un_sort_list[i+1]:
+      temp = un_sort_list[i]
+      un_sort_list[i] = un_sort_list[i+1]
+      un_sort_list[i+1] = temp
+
+print (un_sort_list)
